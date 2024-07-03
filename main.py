@@ -1,31 +1,9 @@
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
-import os
 
-os.environ['PATH'] += r"C:/Users/bpran/Desktop/selenium/Selenium/chromedriver_win32/chromedriver.exe"
-#Chrome version : 126.0.6478.127  chrome://version
-#
 driver = webdriver.Chrome()
-
-'''
-driver.get('https://the-internet.herokuapp.com/dropdown')
-driver.implicitly_wait(3)  # wait for 3 secs
-
-my_element = driver.find_element(By.ID,'dropdown')
-my_element.click()
-'''
-
-# enter keyword to search
-keyword = "geeksforgeeks"
- 
-# get geeksforgeeks.org
-driver.get("https://www.geeksforgeeks.org/find_element_by_id-driver-method-selenium-python/")
- 
-# get element 
-element = driver.find_element(By.ID ,"openInApp-modal")
- 
-# print complete element
-
-
-if (element):
-    print("found")
+query = 'laptop'
+driver.get(f"https://www.amazon.com/s?k={query}&crid=3FCLG8QYEJEX9&sprefix=laptop%2Caps%2C403&ref=nb_sb_noss_1")
+element = driver.find_element(By.CLASS_NAME,"puisg-col-inner")
+print(element.text)
